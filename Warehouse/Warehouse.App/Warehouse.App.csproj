@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Users\**" />
+	  <Compile Remove="WarehouseOperations\GoodsAdjustment\**" />
+	  <Compile Remove="WarehouseOperations\GoodsIssue\Queries\**" />
+	  <Compile Remove="WarehouseOperations\GoodsReservation\**" />
+	  <EmbeddedResource Remove="Users\**" />
+	  <EmbeddedResource Remove="WarehouseOperations\GoodsAdjustment\**" />
+	  <EmbeddedResource Remove="WarehouseOperations\GoodsIssue\Queries\**" />
+	  <EmbeddedResource Remove="WarehouseOperations\GoodsReservation\**" />
+	  <None Remove="Users\**" />
+	  <None Remove="WarehouseOperations\GoodsAdjustment\**" />
+	  <None Remove="WarehouseOperations\GoodsIssue\Queries\**" />
+	  <None Remove="WarehouseOperations\GoodsReservation\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Include="WarehouseOperations\GoodsIssue\Queries\GetGoodsIssueByIdQuery.cs" />
+	  <Compile Include="WarehouseOperations\GoodsIssue\Queries\GetGoodsIssuesQuery.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+		<PackageReference Include="AutoMapper" Version="10.1.1" />
+		<PackageReference Include="FluentValidation" Version="10.1.0" />
+		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="10.1.0" />
+		<PackageReference Include="MassTransit" Version="7.1.8" />
+		<PackageReference Include="MediatR" Version="9.0.0" />
+		<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.6" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\EventContracts\EventContracts.csproj" />
+		<ProjectReference Include="..\Warehouse.Domain\Warehouse.Domain.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="Transactions\Commands\" />
+		<Folder Include="WarehouseItems\Commands\" />
+		<Folder Include="WarehouseOperations\GoodsReceive\Commands\Remove\" />
+	</ItemGroup>
+
+</Project>
